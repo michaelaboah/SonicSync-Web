@@ -4,7 +4,7 @@
 
 
   async function logout() {
-    const response = await fetch('http://localhost:8080/secure/logout', { credentials: "include" });
+    const response = await fetch(import.meta.env.VITE_CLOUD_URL + '/secure/logout', { credentials: "include" });
       
     if (response.ok) {
       $accessToken = ""

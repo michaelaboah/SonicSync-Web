@@ -6,7 +6,7 @@
   let error: { kind: string, details: string } | null = null
 
   async function register() {
-    const response = await fetch('http://localhost:8080/register', {
+    const response = await fetch(import.meta.env.VITE_CLOUD_URL + '/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

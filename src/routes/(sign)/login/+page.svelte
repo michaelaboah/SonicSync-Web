@@ -6,7 +6,7 @@
   let error: { kind: string, details: string } | null = null
   let creds = { email: "", password: "" };
   async function login() {
-    const response = await fetch('http://localhost:8080/login', {
+    const response = await fetch(import.meta.env.VITE_CLOUD_URL + '/login', {
       method: 'POST',
       credentials: "include",
       headers: {
