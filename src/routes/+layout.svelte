@@ -2,11 +2,13 @@
   import "../theme.postcss";
   import "@skeletonlabs/skeleton/styles/skeleton.css"
 	import '../app.postcss';
-  import { Toast, AppShell, modeCurrent, storePopup, Drawer, setInitialClassState, AppBar, LightSwitch, AppRail, AppRailTile, AppRailAnchor,  } from '@skeletonlabs/skeleton';
+  import { Toast, AppShell, modeCurrent, storePopup, Drawer, setInitialClassState, AppBar, LightSwitch } from '@skeletonlabs/skeleton';
   import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
-  // import { preferences } from "$lib/stores/user"
+  import { preferences, accessToken } from "$lib/stores/user"
   import { setContextClient, Client, cacheExchange, fetchExchange } from '@urql/svelte';
   import ArrowIcon from "~icons/simple-line-icons/arrow-up"
+	import type { LayoutData } from "./$types";
+	import { goto } from "$app/navigation";
 	// import ContextLayer from "$lib/components/layers/ContextLayer.svelte";
 	// import InvokeLayer from "$lib/components/layers/InvokeLayer.svelte";
 	// import CollapsedSidebar from "$lib/components/bars/CollapsedSidebar.svelte";
@@ -21,7 +23,6 @@
     // fetchOptions
   });
 
-  // $preferences.ui.darkMode = $modeCurrent
 
   setContextClient(client)
 
@@ -33,21 +34,32 @@
 <Toast/>
 <Drawer/>
 
-<AppShell slotSidebarLeft="max-w-48 variant-ringed-surface rounded-sm relative" slotHeader="w-full flex" regionPage="variant-soft-surface">
+<AppShell slotHeader="w-full flex" regionPage="variant-soft-surface">
   <svelte:fragment slot="header">
-    <AppBar background="bg-primary-100-800-token h-16 w-full " >
+    <AppBar background="bg-primary-100-800-token w-full" >
 
-      <div class="flex justify-between">
-        <h1>Sonic Sync</h1>
-        <LightSwitch rounded="true" />
-      </div>
+      <svelte:fragment slot="lead">
+        <a href="/" class="h2">Sonic Sync</a>
+      </svelte:fragment>
 
+      <svelte:fragment slot="trail">
+
+        {#if $accessToken === ""}
+          <a href="/login" class="btn rounded-xl variant-filled-secondary">Login</a>
+          <a href="/register" class="btn rounded-xl variant-filled-tertiary">Register</a>
+        {:else}
+          <a href="/logout" class="btn rounded-xl variant-filled-tertiary">Logout</a> 
+        {/if}
+
+        <LightSwitch rounded="rounded-token"/>
+      </svelte:fragment>
+
+
+      <svelte:fragment slot="headline"></svelte:fragment>
     </AppBar>
   </svelte:fragment>
 
-  <svelte:fragment slot="pageFooter"></svelte:fragment>
-
-  <div class="w-full h-full">
     <slot />
-  </div>
+
+  <!-- <svelte:fragment slot="pageFooter"></svelte:fragment> -->
 </AppShell>
