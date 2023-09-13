@@ -1,6 +1,5 @@
 <script lang="ts">
-  import "../theme.postcss";
-  import "@skeletonlabs/skeleton/styles/skeleton.css"
+
 	import '../app.postcss';
   import { Toast, AppShell, modeCurrent, storePopup, Drawer, setInitialClassState, AppBar, LightSwitch } from '@skeletonlabs/skeleton';
   import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
@@ -35,7 +34,7 @@
 <Toast/>
 <Drawer/>
 
-<AppShell slotHeader="w-full flex" regionPage="variant-soft-surface">
+<AppShell slotHeader="w-full flex" slotPageFooter="w-full" regionPage="variant-soft-surface">
   <svelte:fragment slot="header">
     <AppBar background="bg-primary-100-800-token w-full" >
 
@@ -62,5 +61,9 @@
 
     <slot />
 
-  <!-- <svelte:fragment slot="pageFooter"></svelte:fragment> -->
+  <svelte:fragment slot="pageFooter">
+    <div class="flex justify-center">
+      <p class="italic">This Site Is Under Construction</p>
+    </div>
+  </svelte:fragment>
 </AppShell>

@@ -23,8 +23,11 @@ devDependencies:
     specifier: ^1.28.1
     version: 1.36.2
   '@skeletonlabs/skeleton':
-    specifier: ^1.11.0
+    specifier: ^1.12.0
     version: 1.12.0(svelte@4.1.2)
+  '@skeletonlabs/tw-plugin':
+    specifier: ^0.2.0
+    version: 0.2.0(tailwindcss@3.3.3)
   '@sveltejs/adapter-auto':
     specifier: ^2.0.0
     version: 2.1.0(@sveltejs/kit@1.22.4)
@@ -37,6 +40,9 @@ devDependencies:
   '@tailwindcss/forms':
     specifier: ^0.5.4
     version: 0.5.6(tailwindcss@3.3.3)
+  '@types/node':
+    specifier: ^20.6.0
+    version: 20.6.0
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.15(postcss@8.4.27)
@@ -66,7 +72,7 @@ devDependencies:
     version: 0.16.6
   vite:
     specifier: ^4.4.2
-    version: 4.4.8
+    version: 4.4.8(@types/node@20.6.0)
 
 packages:
 
@@ -391,7 +397,7 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
-      '@types/node': 20.4.6
+      '@types/node': 20.6.0
       playwright-core: 1.36.2
     optionalDependencies:
       fsevents: 2.3.2
@@ -481,6 +487,14 @@ packages:
       svelte: 4.1.2
     dev: true
 
+  /@skeletonlabs/tw-plugin@0.2.0(tailwindcss@3.3.3):
+    resolution: {integrity: sha512-Mtao12JMrmlYvhv9AfvKNBd5qz+v5MImMG9tri++/4FUORAmzB3F3Qq9+ukfdDtoPT/+Q1CRPn1CL05gDxsKSQ==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0'
+    dependencies:
+      tailwindcss: 3.3.3
+    dev: true
+
   /@sveltejs/adapter-auto@2.1.0(@sveltejs/kit@1.22.4):
     resolution: {integrity: sha512-o2pZCfATFtA/Gw/BB0Xm7k4EYaekXxaPGER3xGSY3FvzFJGTlJlZjBseaXwYSM94lZ0HniOjTokN3cWaLX6fow==}
     peerDependencies:
@@ -537,7 +551,7 @@ packages:
       sirv: 2.0.3
       svelte: 4.1.2
       undici: 5.22.1
-      vite: 4.4.8
+      vite: 4.4.8(@types/node@20.6.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -552,7 +566,7 @@ packages:
       '@sveltejs/vite-plugin-svelte': 2.4.3(svelte@4.1.2)(vite@4.4.8)
       debug: 4.3.4
       svelte: 4.1.2
-      vite: 4.4.8
+      vite: 4.4.8(@types/node@20.6.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -570,7 +584,7 @@ packages:
       magic-string: 0.30.2
       svelte: 4.1.2
       svelte-hmr: 0.15.2(svelte@4.1.2)
-      vite: 4.4.8
+      vite: 4.4.8(@types/node@20.6.0)
       vitefu: 0.2.4(vite@4.4.8)
     transitivePeerDependencies:
       - supports-color
@@ -590,9 +604,8 @@ packages:
   /@types/estree@1.0.1:
     resolution: {integrity: sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==}
 
-  /@types/node@20.4.6:
-    resolution: {integrity: sha512-q0RkvNgMweWWIvSMDiXhflGUKMdIxBo2M2tYM/0kEGDueQByFzK4KZAgu5YHGFNxziTlppNpTIBcqHQAxlfHdA==}
-    dev: true
+  /@types/node@20.6.0:
+    resolution: {integrity: sha512-najjVq5KN2vsH2U/xyh2opaSEz6cZMR2SetLIlxlj08nOcmPOemJmUK2o4kUzfLqfrWE0PIrNeE16XhYDd3nqg==}
 
   /@types/pug@2.0.6:
     resolution: {integrity: sha512-SnHmG9wN1UVmagJOnyo/qkk0Z7gejYxOYYmaAwr5u2yFYfsupN3sg10kyzN8Hep/2zbHxCnsumxOoRIRMBwKCg==}
@@ -2095,7 +2108,7 @@ packages:
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  /vite@4.4.8:
+  /vite@4.4.8(@types/node@20.6.0):
     resolution: {integrity: sha512-LONawOUUjxQridNWGQlNizfKH89qPigK36XhMI7COMGztz8KNY0JHim7/xDd71CZwGT4HtSRgI7Hy+RlhG0Gvg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -2123,6 +2136,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 20.6.0
       esbuild: 0.18.17
       postcss: 8.4.27
       rollup: 3.27.0
@@ -2137,7 +2151,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.4.8
+      vite: 4.4.8(@types/node@20.6.0)
 
   /webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
