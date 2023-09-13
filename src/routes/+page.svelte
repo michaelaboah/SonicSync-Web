@@ -1,30 +1,29 @@
 <script lang="ts">
-  // async function greet() {}
-  // onMount(async () => {
-
-  // invoke('fuzzy_by_model', { model: "Q"}).then(x => console.log(x))
-  
-
-  // function seeProject() {
-    // console.log($project)
-  // }
-
+  import AppIcon from "$lib/assets/app-icon.png"
 </script>
 
 
 
-<section class="w-full h-56 mt-10 ml-10">
+<section class="w-full h-full mt-10">
 
 
-  <div class="columns-2">
+  <div class="mx-auto max-w-5xl md:pb-16 pb-10 text-center">
 
-    <h1 class="h2 whitespace-nowrap">One Tool Unifiying all Paper work</h1>
+    <h1 class="h2 font-bold font-heading leading-tighter tracking-tighter mb-4 dark:text-gray-200 md:text-6xl text-5xl underline">One Tool Unifiying All Paperwork</h1>
     
-
   </div>
 
 
+    <div class="mx-auto ax-w-3xl">
+      <p class="text-muted text-xl dark:text-slate-300 mb-6">
+Sonic Sync is a tool designed for theatrical sound design and audio production. It aims to streamline and synchronize the various elements of the design process, including cable layouts, signal flow, and equipment lists. Sonic Sync provides a unified platform where users can manage and integrate these 
+    </p>
+    </div>
 
+    <div class="relative m-auto max-w">
+
+    <img class="mx-auto w-full rounded-md scale-50" src={AppIcon} alt="SonicSync App Icon"/>
+  </div>
 
 </section>
 

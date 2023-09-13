@@ -1,10 +1,11 @@
 <script lang="ts">
-
 	import '../app.postcss';
-  import { Toast, AppShell, modeCurrent, storePopup, Drawer, setInitialClassState, AppBar, LightSwitch } from '@skeletonlabs/skeleton';
+  import { Toast, AppShell, storePopup, Drawer, setInitialClassState, AppBar, LightSwitch, Accordion, AccordionItem } from '@skeletonlabs/skeleton';
   import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
   import { preferences, accessToken } from "$lib/stores/user"
   import { setContextClient, Client, cacheExchange, fetchExchange } from '@urql/svelte';
+  import AppIcon from "$lib/assets/app-icon.png"
+
   import ArrowIcon from "~icons/simple-line-icons/arrow-up"
 	import type { LayoutData } from "./$types";
 	import { goto } from "$app/navigation";
@@ -27,42 +28,61 @@
 
   console.log(import.meta.env.VITE_API)
 
+
+  const accorLinks = [
+    { link: "",  },
+    // {},
+    // {},
+  ]
+
 </script>
 
 <svelte:head>{@html `<script>(${setInitialClassState.toString()})();</script>`}</svelte:head>
 
 <Toast/>
 <Drawer/>
-
-<AppShell slotHeader="w-full flex" slotPageFooter="w-full" regionPage="variant-soft-surface">
+<!-- variant-filled-surface-500 -->
+<AppShell slotHeader="sticky top-0 z-40 ease-in-out mx-auto w-full flex-none transition-opacity border-b" slotPageFooter="flex items-center mx-auto" regionPage="relative variant-filled-surface-500">
   <svelte:fragment slot="header">
-    <AppBar background="bg-primary-100-800-token w-full" >
+    <AppBar background="w-full variant-filled-surface-500" >
 
       <svelte:fragment slot="lead">
-        <a href="/" class="h2">Sonic Sync</a>
+
+        <div class="flex items-center h-12">
+          <img class="mr-2 h-12" src={AppIcon} alt="SonicSync App Icon"/>
+          <a href="/" class="h2 whitespace-nowrap">Sonic Sync</a>
+        </div>
+
       </svelte:fragment>
+
+      <div class="w-fit mx-auto flex items-center">
+        <div>
+<!-- -->
+
+        </div>
+      </div>
 
       <svelte:fragment slot="trail">
 
+        <a href="/payments/donate" class="btn rounded-3xl variant-ghost-secondary">Donate</a>
         {#if $accessToken === ""}
-          <a href="/login" class="btn rounded-xl variant-filled-secondary">Login</a>
-          <a href="/register" class="btn rounded-xl variant-filled-tertiary">Register</a>
+          <a href="/login" class="btn rounded-3xl variant-ringed-tertiary">Login</a>
+          <a href="/register" class="btn rounded-3xl variant-ringed-tertiary">Register</a>
         {:else}
-          <a href="/logout" class="btn rounded-xl variant-filled-tertiary">Logout</a> 
+          <a href="/logout" class="btn rounded-3xl variant-ringed-tertiary">Logout</a> 
         {/if}
 
         <LightSwitch rounded="rounded-token"/>
       </svelte:fragment>
 
-
-      <svelte:fragment slot="headline"></svelte:fragment>
+      <!-- <svelte:fragment slot="headline"></svelte:fragment> -->
     </AppBar>
   </svelte:fragment>
 
     <slot />
 
   <svelte:fragment slot="pageFooter">
-    <div class="flex justify-center">
+    <div class="">
       <p class="italic">This Site Is Under Construction</p>
     </div>
   </svelte:fragment>
