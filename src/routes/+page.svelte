@@ -1,5 +1,5 @@
 <script lang="ts">
-  import AppIcon from "$lib/assets/app-icon.png"
+  import EquipmentListImg from "$lib/assets/Screenshots/Equipment-List.png"
 </script>
 
 
@@ -14,7 +14,7 @@
   </div>
 
 
-    <div class="mx-auto ax-w-3xl">
+    <div class="mx-auto max-w-3xl">
       <p class="text-muted text-xl dark:text-slate-300 mb-6">
 Sonic Sync is a tool designed for theatrical sound design and audio production. It aims to streamline and synchronize the various elements of the design process, including cable layouts, signal flow, and equipment lists. Sonic Sync provides a unified platform where users can manage and integrate these 
     </p>
@@ -22,7 +22,7 @@ Sonic Sync is a tool designed for theatrical sound design and audio production. 
 
     <div class="relative m-auto max-w">
 
-    <img class="mx-auto w-full rounded-md scale-50" src={AppIcon} alt="SonicSync App Icon"/>
+    <img class="mx-auto w-full rounded-md scale-75" src={EquipmentListImg} alt="Multiple Units of Equipment Listed on a Single Page"/>
   </div>
 
 </section>
