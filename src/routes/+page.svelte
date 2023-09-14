@@ -7,7 +7,7 @@
 <section class="w-full h-full mt-10">
 
 
-  <div class="mx-auto max-w-5xl md:pb-16 pb-10 text-center">
+  <div class="mx-4 md:mx-auto max-w-5xl md:pb-16 pb-10 text-center">
 
     <h1 class="h2 font-bold font-heading leading-tighter tracking-tighter mb-4 dark:text-gray-200 md:text-6xl text-5xl underline">One Tool Unifiying All Paperwork</h1>
     
@@ -15,8 +15,8 @@
 
 
     <div class="mx-auto max-w-3xl">
-      <p class="text-muted text-xl dark:text-slate-300 mb-6">
-Sonic Sync is a tool designed for theatrical sound design and audio production. It aims to streamline and synchronize the various elements of the design process, including cable layouts, signal flow, and equipment lists. Sonic Sync provides a unified platform where users can manage and integrate these 
+      <p class="mx-8 text-muted text-xl dark:text-slate-300 mb-6">
+<span class="font-semibold">Sonic Sync </span>is a tool designed for theatrical sound design and audio production. It aims to streamline and synchronize the various elements of the design process, including cable layouts, signal flow, and equipment lists. <span class="font-semibold">Sonic Sync </span> provides a unified platform where users can manage and integrate these 
     </p>
     </div>
 

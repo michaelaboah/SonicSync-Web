@@ -7,19 +7,19 @@
 
   <div class="mx-auto max-w-5xl md:pb-16 pb-10 text-center">
 
-    <h1 class="h2 font-bold font-heading leading-tighter tracking-tighter mb-4 dark:text-gray-200 md:text-6xl text-5xl underline">Donate</h1>
+    <h1 class="h2 font-bold font-heading leading-tighter tracking-tighter dark:text-gray-200 md:text-6xl text-5xl underline">Donate</h1>
     
   </div>
 
 
   <div class="mx-auto max-w-3xl mb-2">
-    <p class="text-muted text-xl dark:text-slate-300 mb-4 text-center">A lot of work is necessary to make this mission a reality.
+    <p class="text-muted text-xl dark:text-slate-300 mx-8 md:mb-4 text-center ">A lot of work is necessary to make this mission a reality.
       A donation is not only for our funding, but also our moral. It lets us know that this project is worth the effort.</p>
 
     <p class="italic opacity-75 text-center mb-8">Any amount is appreciated</p>
   </div>
 
-  <div class="mx-auto items-center w-max">
+  <div class="mx-8 items-center md:w-max md:mx-auto ">
     
     <div class="card variant-ghost-tertiary p-4">
       <form action="">

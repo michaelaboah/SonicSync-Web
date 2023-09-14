@@ -33,7 +33,7 @@
 
 <Toast/>
 <Drawer/>
-<AppShell slotHeader="sticky top-0 z-40 ease-in-out mx-auto w-full flex-none transition-opacity border-b" slotPageFooter="flex items-center mx-auto" regionPage="relative variant-filled-surface-500">
+<AppShell slotHeader="sticky top-0 z-40 ease-in-out mx-auto w-full flex-none transition-opacity border-b" slotPageFooter="mx-auto w-full" regionPage="relative variant-filled-surface-500">
   <svelte:fragment slot="header">
     <AppBar background="w-full variant-filled-surface-500 flex" slotLead="w-12" slotTrail="!space-x-1">
 
@@ -143,8 +143,9 @@
   {/if}
 
   <svelte:fragment slot="pageFooter">
-    <div class="">
-      <p class="italic">This Site Is Under Construction</p>
+    <div class="w-full">
+      <hr class="opacity-60 w-full">
+      <p class="italic opacity-50 mx-auto">This Site Is Under Construction</p>
     </div>
   </svelte:fragment>
 </AppShell>

@@ -48,14 +48,14 @@
 </script>
 
 
-  <div class="card p-4 m-4 h-1/2">
+  <div class="card p-4 m-4 md:m-24 h-2/5 md:h-fit">
 
     <header>
       <h2 class="h3 font-bold mb-2 text-center mx-auto">Login</h2>
     </header>
 
 
-    <form on:submit|preventDefault={login} class="relative h-full">
+    <form on:submit|preventDefault={login} class="relative h-full md:static">
       <label class="label">
 
         {#if !error} 
@@ -71,7 +71,7 @@
           <p>{JSON.stringify(error)}</p>
         {/if}
 
-        <button type="submit" class="btn btn-sm w-full absolute bottom-10 left-0 variant-filled-primary">Login</button>
+        <button type="submit" class="btn w-full absolute bottom-10 left-0 variant-filled-primary md:static !mt-4">Login</button>
 
       </label>
     </form>
