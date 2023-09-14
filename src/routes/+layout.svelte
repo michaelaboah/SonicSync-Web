@@ -5,15 +5,9 @@
   import { preferences, accessToken } from "$lib/stores/user"
   import { setContextClient, Client, cacheExchange, fetchExchange } from '@urql/svelte';
   import AppIcon from "$lib/assets/app-icon.png"
-
-  import ArrowIcon from "~icons/simple-line-icons/arrow-up"
-	import type { LayoutData } from "./$types";
-	import { goto } from "$app/navigation";
-	// import ContextLayer from "$lib/components/layers/ContextLayer.svelte";
-	// import InvokeLayer from "$lib/components/layers/InvokeLayer.svelte";
-	// import CollapsedSidebar from "$lib/components/bars/CollapsedSidebar.svelte";
-	// import OpenSidebar from "$lib/components/bars/OpenSidebar.svelte";
-
+  import MenuIcon from "~icons/ri/menu-line"
+  import CloseIcon from "~icons/ri/close-line"
+	import { navigating, page } from '$app/stores';
 
 
   storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
@@ -23,17 +17,15 @@
     // fetchOptions
   });
 
+  $: if($navigating?.from?.route.id === $page.route.id) mobileMenu = false 
+
 
   setContextClient(client)
 
+  let mobileMenu = false
+
   console.log(import.meta.env.VITE_API)
 
-
-  const accorLinks = [
-    { link: "",  },
-    // {},
-    // {},
-  ]
 
 </script>
 
@@ -41,17 +33,16 @@
 
 <Toast/>
 <Drawer/>
-<!-- variant-filled-surface-500 -->
 <AppShell slotHeader="sticky top-0 z-40 ease-in-out mx-auto w-full flex-none transition-opacity border-b" slotPageFooter="flex items-center mx-auto" regionPage="relative variant-filled-surface-500">
   <svelte:fragment slot="header">
-    <AppBar background="w-full variant-filled-surface-500" >
+    <AppBar background="w-full variant-filled-surface-500 flex" slotLead="w-12" slotTrail="!space-x-1">
 
       <svelte:fragment slot="lead">
 
-        <div class="flex items-center h-12">
-          <img class="mr-2 h-12" src={AppIcon} alt="SonicSync App Icon"/>
-          <a href="/" class="h2 whitespace-nowrap">Sonic Sync</a>
-        </div>
+        <a href="/" class="flex items-center">
+          <img class="mr-2 h-10 md:h-12 md:w-12" src={AppIcon} alt="SonicSync App Icon"/>
+          <span class="h3 md:h2 whitespace-nowrap">Sonic Sync</span>
+        </a>
 
       </svelte:fragment>
 
@@ -64,22 +55,92 @@
 
       <svelte:fragment slot="trail">
 
-        <a href="/payments/donate" class="btn rounded-3xl variant-ghost-secondary">Donate</a>
-        {#if $accessToken === ""}
-          <a href="/login" class="btn rounded-3xl variant-ringed-tertiary">Login</a>
-          <a href="/register" class="btn rounded-3xl variant-ringed-tertiary">Register</a>
-        {:else}
-          <a href="/logout" class="btn rounded-3xl variant-ringed-tertiary">Logout</a> 
-        {/if}
+        <div class="hidden md:flex items-center space-x-2">
 
-        <LightSwitch rounded="rounded-token"/>
+          <a href="/payments/donate" class="btn-sm rounded-3xl variant-ghost-secondary md:btn-md">Donate</a>
+          {#if $accessToken === ""}
+            <a href="/login" class="btn rounded-3xl variant-ringed-tertiary md:btn btn-sm">Login</a>
+            <a href="/register" class="btn rounded-3xl variant-ringed-tertiary md:btn btn-sm">Register</a>
+          {:else}
+            <a href="/logout" class="btn rounded-3xl variant-ringed-tertiary md:btn btn-sm">Logout</a> 
+          {/if}
+
+          <LightSwitch rounded="rounded-token"/>
+
+        </div>
+
+        <div class="md:hidden flex items-center space-x-2">
+            
+          <LightSwitch rounded="rounded-token"/>
+          <button class="btn btn-icon" on:click={() => mobileMenu = !mobileMenu}>
+            
+            {#if !mobileMenu}
+              <span class="scale-125"><MenuIcon/></span>
+            {:else}
+              <span class="scale-125"><CloseIcon/></span>
+            {/if}
+
+          </button>
+        </div>
+
+
+
       </svelte:fragment>
 
       <!-- <svelte:fragment slot="headline"></svelte:fragment> -->
     </AppBar>
   </svelte:fragment>
+  
+  {#if mobileMenu}
 
+    <div class="modal w-full h-full z-50">
+      <div class="flex items-center">
+        <button></button> 
+        <button></button> 
+      </div> 
+      <nav class="p-1 list-nav">
+        <ul>
+          <li>
+            <a href="/payments/donate" class="">
+              <span></span>
+              <span class="h3 font-semibold">Donate</span>
+            </a>
+            <hr class="w-5/6 mx-auto">
+          </li>
+          {#if $accessToken === ""}
+
+            <li>
+              <a href="/login" class="">
+                <span></span>
+                <span class="h3 font-semibold">Sign In</span>
+              </a>
+            <hr class="w-5/6 mx-auto">
+            </li>
+
+            <li>
+              <a href="/register" class="">
+                <span></span>
+                <span class="h3 font-semibold">Register</span>
+              </a>
+            <hr class="w-5/6 mx-auto">
+            </li>
+          {:else}
+            <li>
+              <a href="/logout">
+                <span class="h3 font-semibold">Sign In</span>
+              </a>
+            <hr class="w-5/6 mx-auto">
+            </li>
+          {/if}
+        </ul> 
+      </nav>
+      
+
+    </div>
+
+  {:else}
     <slot />
+  {/if}
 
   <svelte:fragment slot="pageFooter">
     <div class="">

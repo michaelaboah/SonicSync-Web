@@ -48,30 +48,30 @@
 </script>
 
 
-  <div class="card p-4 w-1/4">
+  <div class="card p-4 m-4 h-1/2">
 
     <header>
-      <h2 class="h3 font-bold mb-2 mx-auto">Login</h2>
+      <h2 class="h3 font-bold mb-2 text-center mx-auto">Login</h2>
     </header>
 
 
-    <form on:submit|preventDefault={login}>
+    <form on:submit|preventDefault={login} class="relative h-full">
       <label class="label">
 
         {#if !error} 
           <span>Email:</span>
-          <input class="input" type="email" name="email" bind:value={creds.email} placeholder="joe@example.com" />
+          <input class="input pr-2 text-right h-10" type="email" name="email" bind:value={creds.email} placeholder="joe@example.com" />
           <span>Password:</span>
-          <input class="input" type="password" name="password" bind:value={creds.password} />
+          <input class="input pr-2 text-right h-10" type="password" name="password" bind:value={creds.password} />
         {:else}
           <span>Email: </span>
-          <input class="input input-error" type="email" name="email" bind:value={creds.email} placeholder="joe@example.com" />
+          <input class="input input-error pr-2 text-right h-10" type="email" name="email" bind:value={creds.email} placeholder="joe@example.com" />
           <span>Password:</span>
-          <input class="input input-error" type="password" name="password" bind:value={creds.password} />
+          <input class="input input-error pr-2 text-right h-10" type="password" name="password" bind:value={creds.password} />
           <p>{JSON.stringify(error)}</p>
         {/if}
 
-        <button type="submit" class="btn btn-sm variant-filled-primary">Login</button>
+        <button type="submit" class="btn btn-sm w-full absolute bottom-10 left-0 variant-filled-primary">Login</button>
 
       </label>
     </form>

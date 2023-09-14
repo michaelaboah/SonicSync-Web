@@ -46,38 +46,38 @@
 </script>
 
 <!-- <div class=""> -->
-  <div class="card p-4 w-1/4">
+  <div class="card p-4 m-4 h-1/2">
 
     <header>
-      <h2 class="h3 font-bold"> Register: </h2>
+      <h2 class="h3 font-bold mb-2 text-center mx-auto"> Register </h2>
     </header>
 
 
-    <form on:submit|preventDefault={register}>
+    <form on:submit|preventDefault={register} class="relative h-full">
       <label class="label">
 
         {#if !error}
-          <span>Email</span>
-          <input class="input" type="email" name="email" placeholder="joe@example.com" bind:value={creds.email} />
+          <span class="ml-2">Email:</span>
+          <input class="input pr-2 text-right h-10" type="email" name="email" placeholder="joe@example.com" bind:value={creds.email} />
 
-          <span>Username</span>
-          <input class="input" type="text" name="username" placeholder="joe@example.com" bind:value={creds.username}/>
+          <span class="ml-2">Username:</span>
+          <input class="input pr-2 text-right h-10" type="text" name="username" placeholder="joe@example.com" bind:value={creds.username}/>
 
-          <span>Password</span>
-          <input class="input" type="password" name="password" bind:value={creds.password}/>
+          <span class="ml-2">Password:</span>
+          <input class="input pr-2 text-right h-10" type="password" name="password" bind:value={creds.password}/>
         {:else}
-          <span>Email</span>
-          <input class="input" type="email" name="email" placeholder="joe@example.com" bind:value={creds.email} />
+          <span class="ml-2">Email:</span>
+          <input class="input pr-2 text-right h-10" type="email" name="email" placeholder="joe@example.com" bind:value={creds.email} />
 
-          <span>Username</span>
-          <input class="input" type="text" name="username" placeholder="joe@example.com" bind:value={creds.username}/>
+          <span class="ml-2">Username:</span>
+          <input class="input pr-2 text-right h-10" type="text" name="username" placeholder="joe@example.com" bind:value={creds.username}/>
 
-          <span>Password</span>
-          <input class="input" type="password" name="password" bind:value={creds.password}/>
+          <span class="ml-2">Password:</span>
+          <input class="input pr-2 text-right h-10" type="password" name="password" placeholder="really bad passwords" bind:value={creds.password}/>
           <p>{error.kind}</p>
         {/if}
 
-        <button type="submit" class="btn btn-sm variant-filled-primary w-full">Register</button>
+        <button type="submit" class="btn btn-sm w-full absolute bottom-10 left-0 variant-filled-primary">Register</button>
       </label>
     </form>
   </div>

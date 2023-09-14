@@ -1,6 +1,6 @@
 <script lang="ts">
 
-  let currentAmount = 0
+  let currentAmount = 0.00
 </script>
 
 <section class="w-full h-full mt-10">
@@ -41,7 +41,7 @@
         <p class="h5 italic text-right">Custom Amount</p>
         <div class="input-group h-10 input-group-divider grid-cols-[auto_1fr_auto]">
           <div class="input-group-shim bg-surface-100 dark:bg-primary-500">$</div>
-          <input class="px-1 bg-surface-100 dark:bg-primary-300" type="text" placeholder="5.00" />
+          <input class="px-1 bg-surface-100 dark:bg-primary-300" type="text" placeholder="5.00" bind:value={currentAmount}/>
           <div class="input-group-shim bg-surface-100 dark:bg-primary-500">USD</div>
           <!-- <select> -->
           <!--   <option>USD</option> -->
